@@ -1,0 +1,48 @@
+paths:
+  /api/carritos/:cid/purchase:
+    post:
+      summary: Crea el ticket de los productos del carrito
+      tags:
+        - Comprar productos del carrito
+      responses:
+        "201": 
+          description: El o los productos fueron comprados con exito y se genero el ticket correctamente
+        "500":
+          description: Error del servidor
+
+  /api/carritos/adProduct:
+    put:
+      summary: Añade un producto al carrito del usuario
+      tags:
+        - Añadir productos al carrito
+      responses:
+        "201":
+          description: Producto añadido correctamente
+        "500":
+          description: Error del servidor
+
+  /api/carritos/deleteProduct:
+    delete:
+      summary: Borra un producto del carrito
+      tags:
+        - Elimina un producto del carrito
+      responses:
+        "201":
+          description: Producto eliminado del carrito correctamente
+        "500":
+          description: Error del servidor
+
+components:
+  schemas:
+    Cart:
+      type: object
+      properties:
+        _id: 
+          type: ObjectId
+          description: Id autogenerado por MONGO
+        idCarrito:
+          type: String
+          description: Id del carrito
+      example:
+        _id: ObjectId("635443654asda")
+        idCarrito: ee3b8a6a-9223-42db-b516-6e671a0cfe9d

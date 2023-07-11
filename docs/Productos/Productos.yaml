@@ -1,0 +1,63 @@
+paths:
+  /api/productos/post/:
+    post:
+      summary: Crea un nuevo producto
+      tags:
+        - Crear productos
+      responses:
+        "201":
+          description: El producto fue creado correctamente
+        "500":
+          description: Error del servidor
+
+  /api/productos/delete/:
+    delete:
+      summary: Elimina un producto
+      tags:
+        - Eliminar productos
+      responses:
+        "201":
+          description: El producto fue eliminado correctamente
+        "500":
+          description: Error del servidor
+
+components:
+  schemas:
+    Productos:
+      type: object
+      properties:
+        _id:
+          type: ObjectId
+          description: Id autogenerado por MONGO
+        title:
+          type: String
+          description: Titulo del producto
+        description:
+          type: String
+          description: description del producto
+        stock: 
+          type: Number
+          description: El stock del producto
+        price:
+          type: Number
+          description: El precio del producto
+        idProducto:
+          type: String
+          description: Id autogenerado identificador
+        status:
+          type: Boolean
+          description: Estado del producto
+        owner: 
+          type: String
+          description: El dueño del producto
+      example:
+        _id: ObjectId("649e4d9cfc55094ed5482eb6")
+        title: Coca Cola 500ml x6
+        description: Sabor original
+        stock: 15
+        price: 4000
+        idProducto: 23e2c833-becd-48d7-b8fc-f28df775303c
+        status: true
+        owner: martin.xd@hotmail.com.ar
+
+
